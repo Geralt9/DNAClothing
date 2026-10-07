@@ -12,14 +12,14 @@ Requires Node.js 18+ (Vite 6).
 
 ```bash
 npm install
-npm run dev       # http://localhost:5173/dna-screen-printing/
+npm run dev       # http://localhost:5173/DNAClothing/
 npm run build     # production build into dist/
 npm run preview   # serve the production build
 ```
 
 ## Deploy to GitHub Pages
 
-1. Create a GitHub repository. If you don't name it `dna-screen-printing`, change `base` in
+1. Create a GitHub repository. If you don't name it `DNAClothing`, change `base` in
    [`vite.config.js`](vite.config.js) to `'/<your-repo-name>/'`.
 2. Push this project to the repository.
 3. Run:

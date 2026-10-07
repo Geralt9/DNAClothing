@@ -5,5 +5,5 @@ import { defineConfig } from 'vite'
 // https://<user>.github.io/<repo-name>/ — change it if you rename the repo.
 export default defineConfig({
   plugins: [react()],
-  base: '/dna-screen-printing/',
+  base: '/DNAClothing/',
 })
