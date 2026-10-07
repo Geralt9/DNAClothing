@@ -1,0 +1,223 @@
+/* ---------- Three-column showcase ---------- */
+.showcase {
+  display: grid;
+  gap: 3rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.showcase__intro {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--gunmetal);
+}
+
+.showcase__quote {
+  margin-top: 1.25rem;
+  padding-left: 1rem;
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, #e6e8eb, #9aa0a6, #2c3036) 1;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.showcase__explore-title {
+  margin: 2.25rem 0 1.25rem;
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+}
+
+.explore {
+  display: grid;
+  gap: 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.explore__link {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.explore__link img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.explore__item--flip .explore__link img {
+  order: 2;
+}
+
+.explore__text {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.explore__text strong {
+  font-size: 0.92rem;
+  color: var(--near-black);
+}
+
+.explore__link:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Tablet: the two cards side by side, intro across the top */
+@media (min-width: 640px) {
+  .showcase {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+  }
+
+  .showcase__center {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .explore {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop: three columns as in the reference */
+@media (min-width: 900px) {
+  .showcase {
+    grid-template-columns: 1fr 1.15fr 1fr;
+    column-gap: clamp(2rem, 4vw, 4.5rem);
+  }
+
+  .showcase__center {
+    grid-column: 2;
+    padding-top: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .showcase__right {
+    padding-top: clamp(0rem, 1vw, 1rem);
+  }
+
+  .explore {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Services ---------- */
+.services__head {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 34ch;
+  margin-bottom: 2rem;
+}
+
+.services__list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.services__item {
+  height: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid #e3e5e8;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--white), var(--off-white));
+  font-weight: 600;
+}
+
+.services__num {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  background: var(--chrome);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: contrast(1.6) brightness(0.8);
+}
+
+@media (min-width: 640px) {
+  .services__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .services__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Callouts ---------- */
+.callouts__banner {
+  width: 100%;
+  aspect-ratio: 1140 / 228;
+  min-height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  filter: grayscale(0.4);
+}
+
+.callouts__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.callout {
+  display: grid;
+  gap: 0.4rem;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: var(--brushed), var(--gunmetal);
+  color: var(--silver);
+  text-decoration: none;
+}
+
+.callout h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.callout__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--white);
+}
+
+.callout:hover .callout__more svg {
+  transform: translateX(4px);
+}
+
+.callout__more svg {
+  transition: transform 0.3s var(--ease);
+}
+
+.callout:focus-visible {
+  outline-color: var(--gunmetal);
+}
+
+@media (min-width: 640px) {
+  .callouts__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

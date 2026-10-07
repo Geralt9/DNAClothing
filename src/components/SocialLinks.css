@@ -1,0 +1,27 @@
+.social {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgb(192 196 200 / 0.35);
+  background: var(--brushed), rgb(255 255 255 / 0.04);
+  color: var(--silver);
+  transition:
+    background 0.3s var(--ease),
+    color 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+.social a:hover {
+  background: var(--chrome);
+  color: var(--near-black);
+  transform: translateY(-2px);
+}

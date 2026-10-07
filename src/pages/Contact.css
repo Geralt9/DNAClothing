@@ -1,0 +1,143 @@
+.contact {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.contact__info {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.contact__card {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  background:
+    var(--brushed),
+    radial-gradient(120% 120% at 100% 0%, #3a3f46, var(--near-black));
+  color: var(--silver);
+}
+
+.contact__card h2,
+.contact__hours h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+.contact__card h2 {
+  color: var(--white);
+}
+
+.contact__card address {
+  display: grid;
+  font-style: normal;
+  font-size: 1.05rem;
+  color: var(--white);
+}
+
+.contact__lines {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.contact__lines a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contact__lines a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.contact__hours {
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--off-white);
+}
+
+.contact__hours table {
+  width: 100%;
+  margin-top: 0.75rem;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.contact__hours th,
+.contact__hours td {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #e0e2e5;
+  text-align: left;
+}
+
+.contact__hours th {
+  font-weight: 600;
+}
+
+.contact__hours td {
+  text-align: right;
+}
+
+.contact__hours .is-closed td {
+  color: var(--text-muted);
+}
+
+.contact__form-wrap {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.contact__form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact__submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.contact__hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.contact__map iframe {
+  width: 100%;
+  height: clamp(260px, 40vw, 420px);
+  border: 0;
+  border-radius: var(--radius-lg);
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.5s var(--ease);
+}
+
+.contact__map iframe:hover,
+.contact__map iframe:focus {
+  filter: none;
+}
+
+@media (min-width: 640px) {
+  .contact__form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact__full {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 900px) {
+  .contact {
+    grid-template-columns: minmax(280px, 0.8fr) 1.2fr;
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+}

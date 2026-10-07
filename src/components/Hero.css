@@ -1,0 +1,126 @@
+.hero {
+  container: hero / inline-size;
+}
+
+.hero__stage {
+  /* Font size is derived from the character count so the line always fits
+     the container width, then clamped for very small / very large screens. */
+  --fit: 0.8; /* average glyph advance of Archivo Black, in em */
+  --fs-max: 11; /* rem */
+  --fs: var(--fs-fit, clamp(2rem, calc(100cqi / (var(--chars-line) * var(--fit))), 11rem));
+  --lh: 0.9;
+  --pt: calc(var(--fs) * 1.15); /* photo visible above the headline */
+  --pb: calc(var(--fs) * 0.22);
+  --split-line: 0.52; /* where the cut falls, in lines from the top */
+  --split: calc(var(--pt) + var(--fs) * var(--lh) * var(--split-line));
+  --offset: calc(var(--fs) * 0.07);
+
+  position: relative;
+  display: grid;
+  isolation: isolate;
+}
+
+.hero--page .hero__stage {
+  --fs-max: 8.5;
+  --fs: var(--fs-fit, clamp(2rem, calc(100cqi / (var(--chars-line) * var(--fit))), 8.5rem));
+  --pt: calc(var(--fs) * 0.95);
+}
+
+/* Narrow containers: home hero stacks one word per line */
+@container hero (max-width: 559px) {
+  .hero--home .hero__stage {
+    --fs: var(--fs-fit, calc(100cqi / (var(--chars-word) * var(--fit))));
+    --pt: calc(var(--fs) * 0.45);
+    --split-line: 1.5;
+  }
+
+  .hero--home .hero__word {
+    display: block;
+  }
+}
+
+.hero__band {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgb(22 24 27 / 0.05), rgb(22 24 27 / 0.35)),
+    var(--hero-img) var(--hero-pos) / cover no-repeat,
+    var(--gunmetal);
+  clip-path: inset(0 0 calc(100% - var(--split)) 0 round var(--radius));
+}
+
+.hero__layer {
+  grid-area: 1 / 1;
+  margin: 0;
+  padding: var(--pt) 0 var(--pb);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs);
+  line-height: var(--lh);
+  letter-spacing: -0.035em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hero__layer--top {
+  color: var(--white);
+  clip-path: inset(0 0 calc(100% - var(--split)) 0);
+  text-shadow: 0 2px 18px rgb(0 0 0 / 0.25);
+}
+
+.hero__layer--bottom {
+  color: var(--near-black);
+  clip-path: inset(var(--split) 0 0 0);
+  transform: translateY(var(--offset));
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .hero__fill {
+    display: block;
+    background:
+      linear-gradient(180deg, rgb(22 24 27 / 0.15), rgb(22 24 27 / 0.15)),
+      var(--hero-img) var(--hero-pos) / cover no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+
+/* Entrance: the two slices slide together */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__band {
+    animation: hero-band 1s var(--ease) both;
+  }
+
+  .hero__layer--top {
+    animation: hero-top 0.9s var(--ease) 0.1s both;
+  }
+
+  .hero__layer--bottom {
+    animation: hero-bottom 0.9s var(--ease) 0.1s both;
+  }
+}
+
+@keyframes hero-band {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes hero-top {
+  from {
+    opacity: 0;
+    transform: translateY(-0.12em);
+  }
+}
+
+@keyframes hero-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(0.3em);
+  }
+}

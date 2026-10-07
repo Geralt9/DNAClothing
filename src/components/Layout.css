@@ -1,0 +1,38 @@
+/* Full-bleed photo behind the floating white card */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgb(22 24 27 / 0.55), rgb(22 24 27 / 0.85)),
+    url('../assets/gallery/img-0102.jpg') center 30% / cover no-repeat,
+    var(--near-black);
+  filter: grayscale(1) contrast(1.05);
+  transform: scale(1.04);
+}
+
+.page-card {
+  position: relative;
+  width: min(1320px, 100% - 2 * var(--gutter));
+  margin: clamp(12px, 4vw, 64px) auto;
+  padding: var(--card-pad);
+  padding-bottom: 0;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: clip;
+}
+
+.page-main {
+  display: block;
+  padding-block: clamp(1rem, 3vw, 2rem) clamp(3rem, 6vw, 5rem);
+}
+
+.page-main:focus {
+  outline: none;
+}
+
+/* Shared page section wrapper */
+.page-section + .page-section {
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+}

@@ -1,0 +1,27 @@
+.page-intro {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.page-intro__meta {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid transparent;
+  border-image: var(--chrome-line) 1;
+}
+
+.page-intro__lead {
+  max-width: 60ch;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--gunmetal);
+}
+
+@media (min-width: 900px) {
+  .page-intro__meta {
+    grid-template-columns: 220px 1fr;
+    align-items: baseline;
+  }
+}

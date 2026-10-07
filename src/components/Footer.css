@@ -1,0 +1,115 @@
+.site-footer {
+  margin-inline: calc(var(--card-pad) * -1);
+  padding: clamp(2.5rem, 5vw, 4rem) var(--card-pad) 1.5rem;
+  background:
+    var(--brushed),
+    radial-gradient(120% 140% at 0% 0%, #3a3f46 0%, var(--gunmetal) 45%, var(--near-black) 100%);
+  color: var(--silver);
+  /* chrome edge along the top */
+  border-top: 1px solid transparent;
+  border-image: var(--chrome-line) 1;
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.site-footer__title {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  color: var(--white);
+}
+
+.site-footer__address {
+  display: grid;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.site-footer__lines {
+  display: grid;
+  gap: 0.2rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.site-footer a:not(.btn, .social a) {
+  color: var(--white);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.site-footer a:not(.btn, .social a):hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.hours {
+  display: grid;
+  gap: 0.15rem;
+  max-width: 300px;
+  font-size: 0.92rem;
+}
+
+.hours div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgb(192 196 200 / 0.14);
+}
+
+.hours dt {
+  color: var(--white);
+}
+
+.hours .is-closed dd {
+  color: var(--steel);
+}
+
+.site-footer__quote p {
+  max-width: 40ch;
+  margin-bottom: 1.25rem;
+}
+
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(192 196 200 / 0.14);
+  font-size: 0.8rem;
+  color: var(--steel);
+}
+
+.site-footer__mark {
+  flex: none;
+  width: 40px;
+  height: auto;
+  filter: grayscale(1) brightness(1.4);
+  opacity: 0.8;
+}
+
+@media (min-width: 640px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-footer__quote {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 900px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr 1.2fr;
+  }
+
+  .site-footer__quote {
+    grid-column: auto;
+  }
+}
